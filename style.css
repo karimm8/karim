@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  font-family: 'Lexend Tera', sans-serif;
+  width: 1400px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.container{
+  background-image: linear-gradient(90deg, rgba(144, 245, 154, 1), rgba(4, 202, 255, 1));
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 300;
+}
+
+.container .categorie{
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 10px;
+}
+
+.container .categorie > button{
+  width: 100px;
+  background-image: linear-gradient(90deg, rgba(0, 90, 255, 0.8), rgba(0, 213, 83, 0.8));
+  border: none;outline: none;
+  padding:7px 0;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.container .categorie > button:hover{
+  box-shadow: -5px -5px 15px 5px rgba(0, 90, 255, 0.8), 5px 5px 15px 7px rgba(0, 213, 83, 0.8);
+}
+
+/* items */
+
+.container .wrap-original-transform {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+
+.container .items{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(100px,300px));
+  gap: 45px;
+  margin-top: 60px;
+}
+
+.container .items .item{
+  background-image: linear-gradient(90deg, rgba(210, 190, 153, 1), rgba(194, 255, 233, 1));
+}
+
+.container .items .original-transform {
+  transform: rotateX(-5deg) rotateY(-15deg);
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.container .items .original-transform:hover{
+  transform: rotateX(10deg) rotateY(25deg);
+}
+
+.container .items .item .info{
+  padding: 10px;
+}
+
+.container .items .item .info h3{
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+img{
+  width: 100%;
+}
+
+@media(max-width:768px){
+  .container .items{
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  }
+}
