@@ -1,95 +1,283 @@
-*{
+/* globale style */
+:root{
+   --first-color:hsl(209, 61%, 16%);
+   --second-color:#49a6e9;
+}
+*,::after,::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
-  font-family: 'Lexend Tera', sans-serif;
-  width: 1400px;
-  max-width: 100%;
-  margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
 }
 
 .container{
-  background-image: linear-gradient(90deg, rgba(144, 245, 154, 1), rgba(4, 202, 255, 1));
-  min-height: 100vh;
-  padding: 40px 20px;
+    width: 1400px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+a{
+    text-decoration: none;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: white;
 }
 
 h1{
-  text-align: center;
-  margin-bottom: 60px;
-  font-weight: 300;
+    font-size: 50px;
+    text-transform: uppercase;
 }
 
-.container .categorie{
- display: flex;
- justify-content: center;
- flex-wrap: wrap;
- gap: 10px;
+ul{
+    list-style: none;
 }
 
-.container .categorie > button{
-  width: 100px;
-  background-image: linear-gradient(90deg, rgba(0, 90, 255, 0.8), rgba(0, 213, 83, 0.8));
-  border: none;outline: none;
-  padding:7px 0;
-  border-radius: 5px;
-  color: white;
-  font-weight: 700;
-  transition: .5s ease;
-  cursor: pointer;
+/* header */
+
+header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("./hero-bcg.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
-.container .categorie > button:hover{
-  box-shadow: -5px -5px 15px 5px rgba(0, 90, 255, 0.8), 5px 5px 15px 7px rgba(0, 213, 83, 0.8);
+header .abs{
+    background-image: linear-gradient(to top, rgba(103, 125, 250, 0.322) 20%, rgba(4, 14, 70, 0.651));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-/* items */
+/* link-top */
 
-.container .wrap-original-transform {
-  perspective: 2000px;
-  transform-style: preserve-3d;
+header .link-top{
+    position: fixed;
+    background-color: var(--first-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    right: 5%;
+    bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    cursor: pointer;
+    animation: bounce 2s infinite;
 }
 
-.container .items{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(100px,300px));
-  place-content: center;
-  gap: 45px;
-  margin-top: 60px;
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}	
+	40% {-webkit-transform: translateY(-10px);}
+	60% {-webkit-transform: translateY(-15px);}
 }
 
-.container .items .item{
-  background-image: linear-gradient(90deg, rgba(210, 190, 153, 1), rgba(194, 255, 233, 1));
+header .show-link{
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.container .items .original-transform {
-  transform: rotateX(-5deg) rotateY(-15deg);
-  transition: .5s ease;
-  cursor: pointer;
+/* navbar */
+
+header nav{
+    min-height: 97px;
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
 }
 
-.container .items .original-transform:hover{
-  transform: rotateX(10deg) rotateY(25deg);
+header .show-navbar{
+    background-color: white;
+    transition: .5s ease-in-out;
+    position: fixed;
 }
 
-.container .items .item .info{
-  padding: 10px;
+header .show-navbar a{
+    color: black;
 }
 
-.container .items .item .info h3{
-  text-transform: uppercase;
-  margin: 10px 0;
+header nav .container .nav-center{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
 }
 
-img{
-  width: 100%;
+header nav .container .nav-center ul{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
 }
+
+header nav .container .nav-center ul a{
+    font-weight: 600;
+    transition: .5s ease-in-out;
+}
+
+header nav .container .nav-center ul a:hover{
+    color: var(--second-color);
+}
+
+header nav .container .nav-center .nav-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav .container .nav-center .nav-toggle img{
+    width: 70px;
+    filter: brightness(0) invert(1);
+}
+
+header .show-navbar .container .nav-center .nav-toggle img{
+  filter: grayscale(100%);
+}
+
+.fa-bars{
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.show-navbar .fa-bars{
+    color: black;
+}
+
+/* binner */
+
+.binner{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+}
+
+.binner .container .content{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.binner .container .content p{
+    font-size: 18px;
+    font-weight: 300;
+    margin: 15px 0 30px;
+    width: 500px;
+    max-width: 100%;
+    line-height: 1.6;
+    text-align: center;
+} 
+
+.binner .container .content a{
+   border: 2px solid white;
+   border-radius: 5px;
+   padding: 7px 14px;
+   font-size: 22px;
+   transition: .5s ease-in-out;
+}
+
+.binner .container .content a:hover{
+    background-color: white;
+    color: var(--first-color);
+}
+
+/* grouping */
+
+h1:not(.binner .container .content h1){
+    text-align: center;
+    line-height: 700px;
+}
+
+.service,.about,.skills{
+    height: 700px;
+}
+
+/* service */
+
+.service{
+    background-color: var(--second-color);
+}
+
+/* about */
+
+.about{
+    background-color: var(--first-color);
+}
+
+/* skills */
+
+.skills{
+    background-color: var(--second-color);
+}
+
+/* footer */
+
+.footer{
+    background-color: var(--first-color);
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* media */
 
 @media(max-width:768px){
-  .container .items{
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  }
+    header nav{
+       position: relative;
+    }
+   .fa-bars{
+    display: block;
+   }
+   header nav .container .nav-center{
+    flex-wrap: wrap;
+    padding: 0 15px;
+   }
+   .nav-center .nav-toggle{
+    width: 100%;
+    margin-bottom: 20px;
+   }
+   ul{
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 20px;
+   }
+   ul.hidden{
+    height: 0;
+    overflow: hidden;
+    transition: .5s ease-in-out;
 }
+   h1{
+    font-size: 30px;
+   }
+   .binner {
+    padding-bottom: 40px;
+   }
+   header .binner .container .content p{
+    padding: 0 30px;
+   }
+}
+
+
