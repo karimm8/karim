@@ -29,8 +29,7 @@ dateFooter();
 let bars = document.querySelector(".fa-bars");
 let ul = document.querySelector("ul")
 
-bars.addEventListener("click",(e)=>{
-    e.preventDefault();
+bars.addEventListener("click",()=>{
    if(!ul.classList.contains("hidden")){
     ul.classList.add("hidden");
    }
